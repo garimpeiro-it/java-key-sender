@@ -13,6 +13,7 @@ To press multiple keys at the same time pass he arguments separated with hyphen 
 The list of keys can be extracted from Java KeyEvent class documentation: https://docs.oracle.com/javase/7/docs/api/java/awt/event/KeyEvent.html. Given the constants (example: VK_A), just take out "VK_" and use it as an argument for the key. For example:
 
 VK_A = a
+
 VK_CONTROL = control
 
 # Usage examples
