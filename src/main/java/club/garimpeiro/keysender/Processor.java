@@ -46,9 +46,15 @@ public class Processor {
     }
 
     protected void processKey(String arg, Boolean hold, Boolean release) {
-        int key = getKeyConstantValue(arg);
+        if (arg.startsWith("@")) {
+            String args[] = arg.split("@");
+            int keyCode = Integer.parseInt(args[1]);
 
-        typeKey(key, isUpperCase(arg), hold, release);
+            typeKey(keyCode, false, hold, release);
+        } else {
+            int keyCode = getKeyConstantValue(arg);
+            typeKey(keyCode, isUpperCase(arg), hold, release);
+        }
     }
 
     protected void processCombination(String args) {
