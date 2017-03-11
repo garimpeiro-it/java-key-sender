@@ -21,30 +21,34 @@ public class Processor {
     }
 
     public void process() {
-        String pdelay = cmd.getOptionValue("pdelay");
+        try {
+            String pdelay = cmd.getOptionValue("pdelay");
+            String delay = cmd.getOptionValue("delay");
 
-        if (pdelay != null) {
-            robot.setAutoDelay(Integer.parseInt(pdelay));
-        }
-
-        for (String arg: cmd.getArgList()) {
-            if (arg.contains("-")) {
-                processCombination(arg);
-            } else {
-                processKey(arg, true, true);
+            if (pdelay != null) {
+                robot.setAutoDelay(Integer.parseInt(pdelay));
             }
+
+            for (String arg: cmd.getArgList()) {
+                if (arg.contains("-")) {
+                    processCombination(arg);
+                } else {
+                    processKey(arg, true, true);
+                }
+
+                if (delay != null) {
+                    robot.delay(Integer.parseInt(delay));
+                }
+            }
+        }  catch (Exception e) {
+
         }
     }
 
     protected void processKey(String arg, Boolean hold, Boolean release) {
         int key = getKeyConstantValue(arg);
-        String delay = cmd.getOptionValue("delay");
 
         typeKey(key, isUpperCase(arg), hold, release);
-
-        if (delay != null) {
-            robot.delay(Integer.parseInt(delay));
-        }
     }
 
     protected void processCombination(String args) {

@@ -12,3 +12,7 @@
 hs_err_pid*
 
 target/*
+
+# others
+key-sender.iml
+.idea/
