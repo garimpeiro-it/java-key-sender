@@ -41,9 +41,10 @@ public class ArgsParser {
 
     protected Options buildOptions() {
         Options options = new Options();
-        options.addOption("d", "delay", true, "Default delay between keystrokes (in miliseconds)");
-        options.addOption("pd", "pdelay", true, "Key press delay (in miliseconds)");
+        options.addOption("d", "delay", true, "Global default delay between keystrokes (in milliseconds)");
+        options.addOption("pd", "pdelay", true, "Global key press delay (in milliseconds)");
         options.addOption("c", "case-correction", true, "Case correction (1=on, 0=off, default=on)");
+        options.addOption("sd", "sdelay", true, "Start with delay (in milliseconds)");
 
         return options;
     }
