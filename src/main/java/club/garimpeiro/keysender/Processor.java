@@ -73,10 +73,11 @@ public class Processor {
         }
 
         String caseCorrection = cmd.getOptionValue("case-correction", "1");
+        Boolean isLetter = key >= KeyEvent.VK_A && key <= KeyEvent.VK_Z;
 
         Boolean holdShift = upperCase && isCapsLockOff() || !upperCase && !isCapsLockOff();
 
-        if (holdShift && caseCorrection.equals("1")) {
+        if (holdShift && caseCorrection.equals("1") && isLetter) {
             robot.keyPress(KeyEvent.VK_SHIFT);
         }
 
@@ -88,7 +89,7 @@ public class Processor {
             robot.keyRelease(key);
         }
 
-        if (holdShift && caseCorrection.equals("1")) {
+        if (holdShift && caseCorrection.equals("1") && isLetter) {
             robot.keyRelease(KeyEvent.VK_SHIFT);
         }
     }
