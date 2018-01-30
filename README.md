@@ -1,6 +1,9 @@
 # java-key-sender
 Send keyboard events to the operational system using a jar file.
 
+# Requirements
+Java 8
+
 # How it works
 You should execute the jar file passing the key as arguments. The key will be sent as keyboard input to the operational system.
 
